@@ -1,0 +1,158 @@
+/* home.css */
+/* Color Theme */
+:root {
+  --dark-brown: #1b1107;
+  --cream: #fffcdc;
+  --accent-gold: #d4af37;
+}
+
+/* Base Styles */
+body {
+  background-color: var(--dark-brown);
+  color: var(--cream);
+}
+
+.hero {
+  background: var(--dark-brown);
+  min-height: 100vh;
+  padding-top: 2rem;
+}
+
+/* Typography */
+.hero__title {
+  font-family: 'Bangers', 'Yatra One', cursive;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.title-main {
+  font-size: 4rem;
+  color: var(--accent-gold);
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+  letter-spacing: 2px;
+}
+
+.title-arc {
+  display: block;
+  font-size: 3.5rem;
+  color: var(--cream);
+  transform: rotate(-3deg);
+  animation: titleTilt 3s ease-in-out infinite;
+}
+
+.title-sub {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: var(--accent-gold);
+  display: block;
+  margin-top: 1rem;
+}
+
+@keyframes titleTilt {
+  0%, 100% { transform: rotate(-3deg) scale(1); }
+  50% { transform: rotate(2deg) scale(1.02); }
+}
+
+/* Button Styles */
+.btn-magic {
+  background: linear-gradient(145deg, #1b1107 0%, #2c1b0f 100%);
+  border: 2px solid var(--accent-gold);
+  border-radius: 30px;
+  padding: 1rem 2rem;
+  font-family: 'Yatra One', cursive;
+  font-size: 1.4rem;
+  color: var(--cream);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-magic:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+  background: linear-gradient(145deg, #2c1b0f 0%, #1b1107 100%);
+}
+
+.btn-arrow {
+  transition: transform 0.3s ease;
+}
+
+.btn-magic:hover .btn-arrow {
+  transform: translateX(5px) rotate(90deg);
+}
+
+/* Image Styles */
+.hero__image {
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Deco Elements */
+.deco-bar {
+  border-top: 2px dashed var(--accent-gold);
+  border-bottom: 2px dashed var(--accent-gold);
+  padding: 1rem 0;
+}
+
+.deco-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--accent-gold);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .title-main {
+    font-size: 2.8rem;
+  }
+
+  .title-arc {
+    font-size: 2.2rem;
+  }
+
+  .title-sub {
+    font-size: 1.8rem;
+  }
+
+  .hero__image {
+    max-width: 90%;
+    margin-top: 2rem;
+  }
+
+  .mobile-message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2rem;
+    color: var(--accent-gold);
+    padding: 1rem;
+    border: 1px dashed var(--accent-gold);
+    border-radius: 15px;
+  }
+}
+
+/* Feature List */
+.hero__features {
+  margin-top: 2rem;
+}
+
+.feature-item {
+  font-family: 'Yatra One', cursive;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.feature-item::before {
+  content: "☕";
+  position: absolute;
+  left: 0;
+  top: -2px;
+}

@@ -1,0 +1,21 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+
+<div class="otp-verification-container">
+  <h2 class="otp-verification-title">OTP Verification</h2>
+  <p class="otp-verification-message">
+    An OTP has been sent to <strong>{{ phone_number }}</strong>.
+  </p>
+  <form class="otp-verification-form" method="POST">
+    {% csrf_token %}
+    <input
+      class="otp-input-field"
+      type="text"
+      name="otp"
+      placeholder="Enter OTP"
+      required
+    />
+    <button class="otp-verification-button" type="submit">Verify OTP</button>
+  </form>
+</div>
+
+{% endblock %}

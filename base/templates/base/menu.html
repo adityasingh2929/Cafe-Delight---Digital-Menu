@@ -1,0 +1,85 @@
+<!-- menu.html updated content -->
+{% extends 'main.html' %} {% load static %} {% block content %}
+
+<!-- Improved Category Navigation -->
+<div class="category-nav">
+  <div class="category-scroller">
+    <a
+      href="{% url 'menu' %}?category=all"
+      class="category-card {% if active_category == 'all' %}active{% endif %}"
+    >
+      <div class="category-icon-wrapper">
+        <img
+          src=""
+          alt="All"
+          class="category-icon"
+        />
+      </div>
+      <span class="category-name">All</span>
+    </a>
+    {% for category in categories %}
+    <a
+      href="{% url 'menu' %}?category={{ category.name|lower }}"
+      class="category-card {% if active_category == category.name|lower %}active{% endif %}"
+    >
+      <div class="category-icon-wrapper">
+        <img
+          src="{{ category.image.url }}"
+          alt="{{ category.name }}"
+          class="category-icon"
+        />
+      </div>
+      <span class="category-name">{{ category.name }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Enhanced Menu Grid -->
+<main class="menu-grid">
+  {% for item in menu_items %}
+  <article class="menu-card">
+    <div class="card-image">
+      <img src="{{ item.image.url }}" alt="{{ item.name }}" loading="lazy" />
+      {% if item.description %}
+      <div class="image-overlay">
+        <p class="description">{{ item.description }}</p>
+      </div>
+      {% endif %}
+    </div>
+    <div class="card-content">
+      <h3 class="item-title">{{ item.name }}</h3>
+      <div class="card-footer">
+        <span class="price">${{ item.price }}</span>
+        <div class="quantity-control">
+          {% if item.id in cart_item_ids %}
+          <div class="stepper">
+            <button class="step-btn decrement" data-item-id="{{ item.id }}">
+              −
+            </button>
+            <span class="count">{{ item.quantity }}</span>
+            <button class="step-btn increment" data-item-id="{{ item.id }}">
+              +
+            </button>
+          </div>
+          {% else %}
+          <button class="add-btn" data-item-id="{{ item.id }}">
+            <span class="plus-icon">+</span> Add
+          </button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </article>
+  {% endfor %}
+</main>
+
+<!-- Floating Cart Button -->
+<div class="cart-floating">
+  <a href="{% url 'cart' %}" class="cart-button">
+    <span class="item-count">{{ cart_item_ids|length }}</span>
+    <img src="{% static 'images/cart.png' %}" alt="Cart" />
+  </a>
+</div>
+
+{% endblock %}

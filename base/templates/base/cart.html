@@ -1,0 +1,55 @@
+<!-- cart.html -->
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+<div class="cart-container">
+  <h1 class="cart-title animate-slide-in">Your Coffee Cart</h1>
+
+  <div class="cart-items-wrapper">
+    {% for item in cart_items %}
+    <article class="cart-item animate-float" data-item-id="{{ item.menu_item.id }}">
+      <div class="cart-item__image-container">
+        <img src="{{ item.menu_item.image.url }}" alt="{{ item.menu_item.name }}" class="cart-item__image">
+      </div>
+
+      <div class="cart-item__details">
+        <h3 class="cart-item__title">{{ item.menu_item.name }}</h3>
+        <p class="cart-item__price">${{ item.menu_item.price }}</p>
+
+        <div class="cart-item__quantity-control">
+          <button class="quantity-btn decrement-btn" data-action="decrement">−</button>
+          <span class="quantity-display">{{ item.quantity }}</span>
+          <button class="quantity-btn increment-btn" data-action="increment">+</button>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+
+  <footer class="cart-footer animate-slide-up">
+    <div class="total-section">
+      <span class="total-label">Total:</span>
+      <span class="total-amount">${{ total_price|floatformat:2 }}</span>
+    </div>
+
+    <button class="checkout-btn">
+      <img src="{% static 'images/coffee-bean.png' %}" alt="Coffee Bean" class="bean-icon">
+      Proceed to Brew
+      <span class="arrow">→</span>
+    </button>
+  </footer>
+    <!-- Confirmation Modal -->
+    <div class="confirmation-modal" id="confirmationModal">
+      <div class="modal-content">
+        <p>Remove this item from your cart?</p>
+        <div class="modal-buttons">
+          <button class="modal-confirm">Yes</button>
+          <button class="modal-cancel">No</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- New cart.css -->
+
+{% endblock %}

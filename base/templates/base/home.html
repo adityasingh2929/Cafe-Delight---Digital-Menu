@@ -1,0 +1,61 @@
+<!-- home.html -->
+{% extends 'main.html' %} {% load static %} {% block content %}
+<section class="hero">
+  <div class="container-fluid hero__container py-5">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <!-- Text Content Column -->
+        <div class="col-lg-6 text-center text-lg-start order-lg-1 order-1">
+          <h1 class="hero__title display-3">
+            <span class="title-main">Brew-tastic!</span><br>
+            <span class="title-arc">Coffee Adventures</span><br>
+            <span class="title-sub">Start Here</span>
+          </h1>
+
+          <p class="hero__description mt-4">
+            Discover our magical brews where every cup tells a story! From classic espressos to wild seasonal specials, we've got your caffeine cravings covered.
+          </p>
+
+          <div class="hero__cta mt-4">
+            <a href="{% url 'menu' %}" class="btn btn-magic">
+              <span class="btn-text">Explore Magical Menu</span>
+              <span class="btn-arrow">➜</span>
+            </a>
+          </div>
+
+          <div class="hero__features mt-4">
+            <p class="feature-item">✨ 100% Arabica Beans</p>
+            <p class="feature-item">🎉 Daily Fresh Brews</p>
+            <p class="feature-item">🏆 Award-Winning Blends</p>
+          </div>
+        </div>
+
+        <!-- Image Column -->
+        <div class="col-lg-6 text-center order-lg-2 order-3">
+          <div class="hero__image-wrapper">
+            <img src="{% static 'images/cmg.png' %}"
+                 class="hero__image img-fluid"
+                 alt="Coffee Mug"
+                 style="max-width: 700px;">
+          </div>
+
+          <!-- Mobile Subtext -->
+          <div class="mobile-message d-lg-none mt-4">
+            <p class="message-text">
+              "Life happens, coffee helps!<br>
+              Come fuel your day with us ☕"
+            </p>
+          </div>
+        </div>
+
+        <!-- Desktop Deco Text -->
+        <div class="col-12 order-2 d-none d-lg-block">
+          <div class="deco-bar mt-5">
+            <div class="deco-text">•・☕・• Freshly Ground ・• 𝓑𝓮𝓼𝓽 𝓑�𝓵𝓮𝓷𝓭𝓼 ・• Always Brewing ・•☕・•</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

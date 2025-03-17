@@ -1,0 +1,226 @@
+/* General Styles */
+body {
+    font-family: 'Yatra One', cursive;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f0e1; /* Light beige background, like coffee cream */
+    color: #4b382a; /* Dark brown text color, like coffee beans */
+}
+
+/* Category Navigation */
+.category-nav {
+    background-color: #6f4e37; /* Coffee brown background */
+    padding: 70px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+.category-scroller {
+    display: flex;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.category-card {
+    text-align: center;
+    text-decoration: none;
+    color: #f5f0e1; /* Light beige text */
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.category-card.active {
+    background-color: #c7a17a; /* Light coffee brown for active state */
+    color: #4b382a; /* Dark brown text for active state */
+}
+
+.category-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #8b735b; /* Medium coffee brown */
+}
+
+.category-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-name {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+/* Menu Grid */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.menu-card {
+    background-color: #ffffff; /* White background for cards */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(75, 56, 42, 0.8); /* Dark brown overlay with transparency */
+    color: #f5f0e1; /* Light beige text */
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.item-title {
+    margin: 0;
+    font-size: 18px;
+    color: #4b382a; /* Dark brown text */
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #6f4e37; /* Coffee brown for price */
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+}
+
+.add-btn {
+    background-color: #6f4e37; /* Coffee brown for buttons */
+    color: #f5f0e1; /* Light beige text */
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.add-btn:hover {
+    background-color: #8b735b; /* Lighter coffee brown on hover */
+}
+
+.stepper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.step-btn {
+    background-color: #6f4e37; /* Coffee brown for buttons */
+    color: #f5f0e1; /* Light beige text */
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.step-btn:hover {
+    background-color: #8b735b; /* Lighter coffee brown on hover */
+}
+
+.count {
+    font-size: 16px;
+    color: #4b382a; /* Dark brown text */
+}
+
+/* Floating Cart Button */
+.cart-floating {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.cart-button {
+    background-color: #6f4e37; /* Coffee brown for cart button */
+    color: #f5f0e1; /* Light beige text */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.cart-button:hover {
+    background-color: #8b735b; /* Lighter coffee brown on hover */
+}
+
+.item-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #f5f0e1; /* Light beige background */
+    color: #6f4e37; /* Coffee brown text */
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.cart-button img {
+    width: 24px;
+    height: 24px;
+}
